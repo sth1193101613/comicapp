@@ -7,24 +7,48 @@ export default new Router({
     base: process.env.BASE_URL,
     routes: [
         {
-            path: "/",
+            path: '/',
+            redirect: '/discovery'
+        },
+        {
+            path: "/discovery",
             name: "discovery",
+            meta:{
+              show:true
+            },
             component: resolve => require(['@/components/discovery/discovery.vue'],resolve)
         },
         {
             path: "/My",
             name: "My",
+            meta:{
+                show:true
+            },
             component:resolve => require(['@/components/My/My.vue'],resolve)
         },
         {
             path: "/myComics",
             name: "myComics",
+            meta:{
+                show:true
+            },
             component:resolve => require(['@/components/myComics/myComics.vue'],resolve)
         },
         {
             path: "/update",
             name: "update",
+            meta:{
+                show:true
+            },
             component:resolve => require(['@/components/update/update.vue'],resolve)
+        },
+        {
+            path: "/classFily",
+            name: "classFily",
+            meta:{
+                show:false
+            },
+            component:resolve => require(['@/components/classFily/classFily.vue'],resolve)
         }
     ]
 });

@@ -1,44 +1,22 @@
 <template>
     <div>
-
+        <v-swiper></v-swiper>
+        <v-navTab></v-navTab>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+    import swiper from './swiper/swiper.vue'
+    import navTab from './navTab/navTab.vue'
     export default {
         name: "discovery",
-        data () {
-            return {
-                selectedLabelDefault: 'Vip',
-                tabs: [{
-                    label: 'Home',
-                    icon: 'cubeic-home'
-                }, {
-                    label: 'Like',
-                    icon: 'cubeic-like'
-                }, {
-                    label: 'Vip',
-                    icon: 'cubeic-vip'
-                }, {
-                    label: 'Me',
-                    icon: 'cubeic-person'
-                }]
-            }
-        },
-        methods: {
-            clickHandler (label) {
-                // if you clicked home tab, then print 'Home'
-                console.log(label)
-            },
-            changeHandler (label) {
-                // if you clicked different tab, this methods can be emitted
-            }
+        components:{
+            "v-swiper": swiper,
+            "v-navTab": navTab
         }
     };
 </script>
 
 <style lang="less" rel="stylesheet/less">
-    div{
-        font-size: 20px;
-    }
+
 </style>

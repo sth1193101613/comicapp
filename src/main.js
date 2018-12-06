@@ -1,13 +1,14 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/router";
-import store from "./store/store";
+import store from "./store/state";
 import Cube from './cube-ui'
 
 import "./registerServiceWorker";
 import "./assets/css/main.css"
 import 'lib-flexible'
-
+import 'font-awesome/css/font-awesome.css'
+import 'css-ripple-effect'
 
 
 Vue.config.productionTip = false;
