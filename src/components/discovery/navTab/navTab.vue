@@ -1,7 +1,7 @@
 <template>
     <div class="nav">
         <ul class="navMain">
-            <li v-for="(item,index) in navList" class="list">
+            <li v-for="(item,index) in navList" class="list" @click="ous(item.path)">
                 <img :src="item.icon">
                 <p>{{item.name}}</p>
             </li>
@@ -15,7 +15,7 @@
         data(){
             return{
                 navList:[
-                    {name:"分类",icon:require('../../../assets/images/fenlei.png'),path:''},
+                    {name:"分类",icon:require('../../../assets/images/fenlei.png'),path:'/classificat'},
                     {name:"个性推荐",icon:require('../../../assets/images/tuijian.png'),path:''},
                     {name:"新作品",icon:require('../../../assets/images/huojian.png'),path:''},
                     {name:"排行",icon:require('../../../assets/images/paihang.png'),path:''}
@@ -23,8 +23,9 @@
             }
         },
         methods:{
-            ous(){
-                this.$router.push('/classFily')
+            ous(path){
+                console.log(path)
+                this.$router.push(path);
             }
         }
     }
