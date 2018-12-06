@@ -6,7 +6,7 @@
             </transition>
             <v-Footer :idx="1" v-if="$route.meta.show"></v-Footer>
         </div>
-    </div>
+    </div> 
 </template>
 <script type="text/ecmascript-6">
     import footerTemp from './views/footerTemplate/footerTemp.vue'
@@ -24,7 +24,7 @@
 </script>
 <style lang="less">
     .child-view {
-        position: absolute;
+        position:absolute;
         left: 0;
         top: 0;
         width: 100%;
