@@ -6,7 +6,6 @@
             </transition>
             <v-Footer :idx="1" v-if="$route.meta.show"></v-Footer>
         </div>
-        111111111111111111111111111111
     </div> 
 </template>
 <script type="text/ecmascript-6">
