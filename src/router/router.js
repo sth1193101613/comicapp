@@ -49,6 +49,14 @@ export default new Router({
                 show:false
             },
             component:resolve => require(['@/components/classFily/classFily.vue'],resolve)
+        },
+        {
+            path: "/classificat",
+            name: "classificat",
+            meta:{
+                show:false
+            },
+            component:resolve => require(['@/views/classificat/index.vue'],resolve)
         }
     ]
 });

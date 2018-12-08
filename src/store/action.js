@@ -7,8 +7,11 @@ export default {
             username: user.username,
             password:user.password
         }).then(res => {
-            console.log(res)
-            commit(types.USER_TYPE,res.data.result[0])
+            if(res.code !== 1){
+                alert(1)
+            }else{
+                commit(types.USER_TYPE,res.data.result[0])
+            }
         })
     }
 }

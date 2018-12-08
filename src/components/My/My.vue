@@ -2,7 +2,7 @@
     <div class="myMain">
         <div class="Myheader">
             <span><img :src="awtImg"></span>
-            <span @click="loginUp">{{loginUser.name}}</span>
+            <span @click="loginUp">{{loginUser===""? "登录":loginUser.name}}</span>
         </div>
         <ul class="my">
             <li class="list" @click="admin">
@@ -25,18 +25,12 @@
         name: "My",
         data(){
             return{
+                msg:"登录",
                 login:false,
                 awtImg:require('../../assets/images/toux.png')
             }
         },
         computed:{
-            loginUser(){
-                if(this.loginUser === ""){
-                    return "登录"
-                }else{
-                    return this.loginUser
-                }
-            },
             ...mapState([
                 'loginUser',
             ]),
@@ -44,7 +38,6 @@
         methods:{
             admin(){
                 this.loginUp()
-
             },
             closeFalse(){
                 this.login = false
