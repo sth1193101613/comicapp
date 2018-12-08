@@ -44,7 +44,7 @@
         methods:{
             admin(){
                 this.loginUp()
-                
+
             },
             closeFalse(){
                 this.login = false
