@@ -1,8 +1,17 @@
 <template>
-    <div>
-        <ul>
-            <li>
-                <p><span></span>帐号管理</p>
+    <div class="myMain">
+        <div class="Myheader">
+            <span><img :src="awtImg"></span>
+            <span @click="loginUp">{{loginUser===""? "登录":loginUser.name}}</span>
+        </div>
+        <ul class="my">
+            <li class="list" @click="admin">
+                <span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                <p>帐号管理</p>
+            </li>
+            <li class="list">
+                <span><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                <p>咚漫消息</p>
             </li>
         </ul>
     </div>
@@ -12,19 +21,36 @@
     import axios from 'axios'
     export default {
         name: "My",
-        created(){
-            this.getuser()
+        data(){
+            return{
+                msg:"登录",
+                login:false,
+                awtImg:require('../../assets/images/toux.png')
+            }
+        },
+        computed:{
+            ...mapState([
+                'loginUser',
+            ]),
         },
         methods:{
-            getuser(){
-                axios.post('/api/user/selectUser',{
-                    username: 111,
-                    password: 765
-                }).then(res => {
-                    console.log(res)
-                })
-            }
-        }
+            admin(){
+                this.loginUp()
+            },
+            closeFalse(){
+                this.login = false
+            },
+            loginUp(){
+                if(this.loginUser === ""){
+                    this.login = true
+                }else{
+                    this.login = false
+                }
+            },
+        },
+        components:{
+            "v-myLogin":myLogin
+        },
     };
 </script>
 

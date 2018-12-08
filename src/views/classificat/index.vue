@@ -4,18 +4,15 @@
         <ul class="class-name">
             <li v-for="(item,index) in className"
                 :class="{active:item.category_id===id}"
-                @click="_clickClass(item.category_id)"
-            >
+                @click="_clickClass(item.category_id)">
                 {{item.category_title}}
             </li>
         </ul>
         <div class="classificat"
-
              @touchstart="state"
              @touchmove="route"
              @touchend="ends"
-             :style="{transform:`translateX(${x}px)`}"
-        >
+             :style="{transform:`translateX(${x}px)`}">
             <ul class="class-d-name">
                 <li v-for="item in classDName">
                     <img :src="`https://cdn.comicool.cn/${item.content_poster}?imageView2/2/w/180`">
@@ -69,14 +66,11 @@
                 let className = this.className;
                 let headClassIndex = this.headClassIndex;
                 if(x>350){
-
                     headClassIndex--;
                 }
                 if(x<-350){
-
                     headClassIndex++
                 }
-
                 this.x = this.statX = 0
             },
             _classAction(){
