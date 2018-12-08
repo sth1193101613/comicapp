@@ -41,6 +41,7 @@ router.post("/selectUser", (req, res) => {
                 });
             } else {
                 res.send({
+                    result,
                     msg: "登录成功",
                     code: 1
                 });

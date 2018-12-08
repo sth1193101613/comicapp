@@ -4,11 +4,12 @@
             <transition :name="transitionName">
                 <router-view class="child-view"/>
             </transition>
-            <v-Footer :idx="1" v-if="$route.meta.show"></v-Footer>
+            <v-Footer :Idx="Number(this.idx)" v-if="$route.meta.show"></v-Footer>
         </div>
     </div> 
 </template>
 <script type="text/ecmascript-6">
+    import {mapState} from 'vuex'
     import footerTemp from './views/footerTemplate/footerTemp.vue'
     export default {
         name: 'App',
@@ -16,6 +17,11 @@
             return {
                 transitionName: 'slide-left'
             }
+        },
+        computed:{
+            ...mapState([
+                'idx',
+            ]),
         },
         components:{
             "v-Footer":footerTemp
