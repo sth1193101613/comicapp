@@ -27,10 +27,12 @@
     .head-fiexd{
         position: fixed;
         left: 0;
+        top: 0;
         right: 0;
         width: 100%;
         color: #525252;
-        background: rgba(255, 255, 255, .9);
+        background: #fff;
+        z-index: 1;
         border-bottom: 1px solid #e5e5e5;
         display: flex;
         h1{
