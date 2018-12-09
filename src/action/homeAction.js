@@ -20,7 +20,7 @@ export  function classAction() {
     return jsonp(url,data,options);
 }
 
-export  function classDAction(id) {
+export  function classContAction(id) {
     const url="https://proxy.comicool.cn/allcomic4h5";//分类全部数据
     const data=Object.assign({},commonParams,{
         comic_id: 0,

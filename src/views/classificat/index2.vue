@@ -31,7 +31,7 @@
 
 <script>
     import twoHead from '@/components/twoHead/index2.vue'
-    import {classAction,classDAction} from '../../action/homeAction.js'
+    import {classAction,classContAction} from '../../action/homeAction.js'
     export default {
         name: "classificat",
         data(){
@@ -80,7 +80,7 @@
             },
             _clickClass(id){
                 this.id = id;
-                classDAction(id).then(res => {
+                classContAction(id).then(res => {
                     this.classDName = res.content_list
                 });
 
@@ -91,7 +91,6 @@
 </script>
 
 <style lang="less">
-
     .ovAuto{
         overflow: auto;
     }
