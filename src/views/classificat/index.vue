@@ -7,35 +7,35 @@
                           ref="tabNav"
                           :data="TabTitle">
             </cube-tab-bar>
-
-            <div class="tab-slide-container">
-                <cube-slide
-                        ref="slide"
-                        :loop=false
-                        :auto-play=false
-                        :show-dots=false
-                        :initial-index="initialIndex"
-                        :options="slideOptions"
-                        :data="TabTitle"
-                        :refreshResetCurrent="true"
-                        @change="changePage"
-                        >
-                    <cube-slide-item v-for="(item,index) in TabTitle" :key="index" >
-                        <ul class="class-d-name" @touchstart="state" @touchmove="touchmoves(index,$event)">
-                            <li v-for="item in item.classDName">
-                                <img :src="`https://cdn.comicool.cn/${item.content_poster}?imageView2/2/w/180`">
-                                <div class="name">
-                                    <h3>{{item.content_title}}</h3>
-                                    <div class="name-icon">
-                                        <i class="cubeic-good"></i>
-                                        <p>{{item.content_praise_count}}</p>
+            <Better-Scroll>
+                <div class="tab-slide-container">
+                    <cube-slide
+                            ref="slide"
+                            :loop=false
+                            :auto-play=false
+                            :show-dots=false
+                            :initial-index="initialIndex"
+                            :options="slideOptions"
+                            :data="TabTitle"
+                            :refreshResetCurrent="true"
+                            @change="changePage">
+                        <cube-slide-item v-for="(item,index) in TabTitle">
+                            <ul class="class-d-name" @touchstart="state" @touchmove="touchmoves(index,$event)">
+                                <li v-for="(item,index) in item.classDName" :key="index">
+                                    <img :src="`https://cdn.comicool.cn/${item.content_poster}?imageView2/2/w/180`">
+                                    <div class="name">
+                                        <h3>{{item.content_title}}</h3>
+                                        <div class="name-icon">
+                                            <i class="cubeic-good"></i>
+                                            <p>{{item.content_praise_count}}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </cube-slide-item>
-                </cube-slide>
-            </div>
+                                </li>
+                            </ul>
+                        </cube-slide-item>
+                    </cube-slide>
+                </div>
+            </Better-Scroll>
         </div>
     </div>
 </template>
@@ -43,7 +43,7 @@
     import twoHead from '@/components/twoHead/index.vue'
     import {classAction,classContAction} from '../../action/homeAction.js'
     import {findIndexitem} from '../../assets/js/util'
-    import {TAB} from '../../assets/js/tab'
+    import BetterScroll from '../../views/better/bscroll'
     export default {
         name: "classificat",
         data(){
@@ -51,7 +51,7 @@
                 selectedLabel: '新作',
                 id:'',
                 TabTitle:[],
-                name:'nicc',
+                name:'分类',
                 width: document.body.clientWidth,
                 slideOptions: {
                     listenScroll: true,
@@ -80,23 +80,19 @@
             state(e){
                 let clientX = e.targetTouches[0].clientX
                 this.statX = clientX
-
                 /* 不让请求无限触发 */
                 this.flng = true;
             },
             changePage(current){
                 this.selectedLabel = this.TabTitle[current].label
                 this.id = this.TabTitle[current].id
-
                 this.flng = true;
                 this._qqiu(current,this.TabTitle);
             },
             touchmoves(index,e) {
                 /* 传入当前的index进行 */
                 let [clientX,statX,TabTitle] = [e.targetTouches[0].clientX,this.statX,this.TabTitle];
-
                 let x = clientX - statX ;
-
                 /* 判断是左边还是右边 */
                 if(x>10){
                     index--
@@ -111,7 +107,7 @@
                 }else if(index>TabTitle.length-1){
                     index = TabTitle.length-1
                 }
-                
+
                 this._qqiu(index,TabTitle)
             },
             _qqiu(index,TabTitle){
@@ -138,7 +134,6 @@
             getTabTitle() {
                 let arr = []
                 classAction().then(res => {
-
                     if(res.msg === "success"){
                         let category = res.category_list
                         for (let i in category) {
@@ -154,17 +149,16 @@
                     this._clickClass(arr[0].id)
                 });
                 this.TabTitle=arr
-
             }
         },
         components:{
-            twoHead
+            twoHead,
+            BetterScroll
         },
     }
 </script>
 
 <style lang="less" rel="stylesheet/less">
-
     .flexWrap{
         display: flex;
         flex-direction: row;
@@ -175,7 +169,7 @@
         width: 750px;
     }
     .cube-slide-item{
-       min-height: 1px;
+        min-height: 1px;
     }
     .tabox{
         position: absolute;
