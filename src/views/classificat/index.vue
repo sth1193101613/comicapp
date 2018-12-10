@@ -1,5 +1,5 @@
 <template>
-    <div class="node">
+    <div class="ovAuto">
         <two-head :name="name"></two-head>
         <div class="tabox">
             <cube-tab-bar v-model="selectedLabel"
@@ -16,99 +16,108 @@
                         :initial-index="initialIndex"
                         :options="slideOptions"
                         @change="changePage">
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
+                    <cube-slide-item v-for="(item,index) in TabTitle" v-if="TabTitle.length!==0" :key="index">
+                        <cube-scroll :options="scrollOptions">
+                            {{item.label}}
                         </cube-scroll>
                     </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
-                    <cube-slide-item>
-                        <cube-scroll  :options="scrollOptions">
-                            123
-                        </cube-scroll>
-                    </cube-slide-item>
+
+
+
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
+                    <!--<cube-slide-item>-->
+                    <!--<cube-scroll  :options="scrollOptions">-->
+                    <!--123-->
+                    <!--</cube-scroll>-->
+                    <!--</cube-slide-item>-->
                 </cube-slide>
             </div>
         </div>
     </div>
 </template>
-
 <script type="text/ecmascript-6">
-    import {classAction,classContAction} from '../../action/homeAction.js'
-    import { findIndexitem } from '../../assets/js/util.js'
     import twoHead from '@/components/twoHead/index.vue'
+    import {classAction} from '../../action/homeAction.js'
+    import {findIndexitem} from '../../assets/js/util'
+    import {TAB} from '../../assets/js/tab'
     export default {
-        name: "index",
+        name: "classificat",
         data(){
             return{
                 selectedLabel: '新作',
                 id:'',
-                TabTitle:[],
+                TabTitle:TAB,
                 name:'nicc',
+                width: document.body.clientWidth,
                 slideOptions: {
                     listenScroll: true,
                     probeType: 3,
@@ -126,27 +135,31 @@
                 return index
             },
         },
-        mounted(){
-            this.getTabTitle()
+        created(){
+            this.$nextTick(e => {
+                // this.getTabTitle()
+            },20)
         },
-        methods:{
-            changePage (current) {
+        methods: {
+            changePage(current) {
                 this.selectedLabel = this.TabTitle[current].label
-                this.index = current
                 this.id = this.TabTitle[current].id
 
             },
-            getTabTitle(){
+            getTabTitle() {
                 classAction().then(res => {
-                    let category = res.category_list
-                    for(let i in category){
-                        let msg = {
-                            label: category[i].category_title,
-                            id: category[i].category_id
+                    let arr = []
+                    if(res.msg === "success"){
+                        let category = res.category_list
+                        for (let i in category) {
+                            let msg = {
+                                label: category[i].category_title,
+                                id: category[i].category_id
+                            }
+                            arr.push(msg)
                         }
-                        this.TabTitle.push(msg)
                     }
-
+                    this.TabTitle = arr
                 })
             }
         },
@@ -165,11 +178,11 @@
         width: 100%;
         height: 100%;
         background: #efeff4;
-        .cube-tab-bar{
+        .cube-tab-bar {
             display: flex;
             flex-wrap: wrap;
-            .cube-tab{
-                flex:1;
+            .cube-tab {
+                flex: 1;
                 width: 20%;
                 min-width: 20%;
                 max-width: 20%;

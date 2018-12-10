@@ -1,22 +1,16 @@
 <template>
     <div class="footer">
-        <div v-for='(item,index) of items' :class='[{on:index === Number(idx)}]' class="footerView ripple" @click="nav(item,index)">
-            <i :class="['fa',item.icon,{onIcon:index === Number(idx)}]" aria-hidden="true"></i>
-            <p :class="['colorChange',{on:index === Number(idx)}]">{{item.name}}</p>
+        <div v-for='(item,index) of items' :class='[{on:index === Index}]' class="footerView ripple" @click="nav(item,index)">
+            <i :class="['fa',item.icon,{onIcon:index === Index}]" aria-hidden="true"></i>
+            <p :class="['colorChange',{on:index===Index}]">{{item.name}}</p>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    import {mapMutations,mapState} from 'vuex'
     export default {
         name: "footerTemp",
-        props:{
-            Idx:{
-                type:Number,
-                default:2
-            }
-        },
+        props:['idx'],
         data(){
             return {
                 items:[
@@ -40,29 +34,22 @@
                         push:"/My",
                         icon:"fa-user",
                     }],
+                Index:this.idx
             }
         },
-        computed:{
-            ...mapState([
-                'idx',
-            ]),
-        },
         methods:{
-            ...mapMutations({
-                idxAction: 'IDX_TYPE'
-            }),
             nav(item,index){
                 this.$router.push(item.push)
-                this.idxAction(index)
-            },
-        },
+                this.Index = index
+            }
+        }
     }
 </script>
 
 <style lang="less" rel="stylesheet/less">
     .footer {
         display: flex;
-        position: absolute;
+        position: fixed;
         left: 0;
         bottom: 0;
         right: 0;
