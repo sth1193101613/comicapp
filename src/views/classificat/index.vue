@@ -34,6 +34,7 @@
                             </ul>
                         </cube-slide-item>
                     </cube-slide>
+
                 </div>
             </Better-Scroll>
         </div>
@@ -164,7 +165,13 @@
         flex-direction: row;
         flex-wrap: wrap;
     }
-
+    .cube-slide{
+        height: auto;
+    }
+    .cube-slide-group{
+        white-space:normal;
+        overflow: inherit;
+    }
     .tab-slide-container{
         width: 750px;
     }
@@ -178,15 +185,17 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: #efeff4;
+        background: #fff;
         .cube-tab-bar {
-            display: flex;
+            margin: 10px 0;
             flex-wrap: wrap;
             .cube-tab {
+                line-height: 1.5;
                 flex: 1;
                 width: 20%;
                 min-width: 20%;
                 max-width: 20%;
+                font-size: 26px;
             }
         }
     }
@@ -205,21 +214,18 @@
             }
             img{
                 width: 100%;
-                height: 150px;
+                display: block;
             }
             .name{
-                position: relative;
                 padding: 26px 20px 15px;
-                height: 100px;
+
                 h3{
-                    font-size: 30px;
+                    font-size: 26px;
                 }
                 &-icon{
+                    margin-top: 26px;
                     .flexWrap;
-                    position: absolute;
-                    bottom: 15px;
                     font-size: 24px;
-                    font-size: 25px;
                     color: #00dd35;
                 }
             }
