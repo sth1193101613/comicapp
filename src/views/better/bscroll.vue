@@ -37,15 +37,5 @@
 </script>
 
 <style lang="less" rel="stylesheet/less">
-  .bigmain{
-    position: absolute;
-    left: 0;
-    top: 2rem;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    .gib{
-      padding-bottom: 1.5rem;
-    }
-  }
+
 </style>

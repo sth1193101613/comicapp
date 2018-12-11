@@ -7,36 +7,37 @@
                           ref="tabNav"
                           :data="TabTitle">
             </cube-tab-bar>
-            <Better-Scroll>
-                <div class="tab-slide-container">
-                    <cube-slide
-                            ref="slide"
-                            :loop=false
-                            :auto-play=false
-                            :show-dots=false
-                            :initial-index="initialIndex"
-                            :options="slideOptions"
-                            :data="TabTitle"
-                            :refreshResetCurrent="true"
-                            @change="changePage">
-                        <cube-slide-item v-for="(item,index) in TabTitle">
-                            <ul class="class-d-name" @touchstart="state" @touchmove="touchmoves(index,$event)">
-                                <li v-for="(item,index) in item.classDName" :key="index">
-                                    <img :src="`https://cdn.comicool.cn/${item.content_poster}?imageView2/2/w/180`">
-                                    <div class="name">
-                                        <h3>{{item.content_title}}</h3>
-                                        <div class="name-icon">
-                                            <i class="cubeic-good"></i>
-                                            <p>{{item.content_praise_count}}</p>
+            <div class="pr">
+                <Better-Scroll>
+                    <div class="tab-slide-container">
+                        <cube-slide
+                                ref="slide"
+                                :loop=false
+                                :auto-play=false
+                                :show-dots=false
+                                :initial-index="initialIndex"
+                                :options="slideOptions"
+                                :data="TabTitle"
+                                :refreshResetCurrent="true"
+                                @change="changePage">
+                            <cube-slide-item v-for="(item,index) in TabTitle">
+                                <ul class="class-d-name" @touchstart="state" @touchmove="touchmoves(index,$event)">
+                                    <li v-for="(item,index) in item.classDName" :key="index">
+                                        <img :src="`https://cdn.comicool.cn/${item.content_poster}?imageView2/2/w/180`">
+                                        <div class="name">
+                                            <h3>{{item.content_title}}</h3>
+                                            <div class="name-icon">
+                                                <i class="cubeic-good"></i>
+                                                <p>{{item.content_praise_count}}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </cube-slide-item>
-                    </cube-slide>
-
-                </div>
-            </Better-Scroll>
+                                    </li>
+                                </ul>
+                            </cube-slide-item>
+                        </cube-slide>
+                    </div>
+                </Better-Scroll>
+            </div>
         </div>
     </div>
 </template>
@@ -160,9 +161,23 @@
 </script>
 
 <style lang="less" rel="stylesheet/less">
-    .bigmain{
-        top:2.5rem;
+    .pr{
+        position: relative;
+        height: 100%;
     }
+    .bigmain{
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        .gib{
+            padding-bottom: 4.5rem;
+        }
+    }
+
+
     .flexWrap{
         display: flex;
         flex-direction: row;
@@ -221,12 +236,14 @@
             }
             .name{
                 padding: 26px 20px 15px;
-
+                position: relative;
+                height: 90px;
                 h3{
                     font-size: 26px;
                 }
                 &-icon{
-                    margin-top: 26px;
+                    position: absolute;
+                    bottom: 10px;
                     .flexWrap;
                     font-size: 24px;
                     color: #00dd35;

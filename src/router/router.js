@@ -57,6 +57,14 @@ export default new Router({
                 show:false
             },
             component:resolve => require(['@/views/classificat/index.vue'],resolve)
+        },
+        {
+            path: "/rank",
+            name: "rank",
+            meta:{
+                show:false
+            },
+            component:resolve => require(['@/views/rank/index.vue'],resolve)
         }
     ]
 });

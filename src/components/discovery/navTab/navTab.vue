@@ -18,7 +18,7 @@
                     {name:"分类",icon:require('../../../assets/images/fenlei.png'),path:'/classificat'},
                     {name:"个性推荐",icon:require('../../../assets/images/tuijian.png'),path:''},
                     {name:"新作品",icon:require('../../../assets/images/huojian.png'),path:''},
-                    {name:"排行",icon:require('../../../assets/images/paihang.png'),path:''}
+                    {name:"排行",icon:require('../../../assets/images/paihang.png'),path:'/rank'}
                 ]
             }
         },
