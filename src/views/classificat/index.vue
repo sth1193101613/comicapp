@@ -95,10 +95,9 @@
                 let [clientX,statX,TabTitle] = [e.targetTouches[0].clientX,this.statX,this.TabTitle];
                 let x = clientX - statX ;
                 /* 判断是左边还是右边 */
-                if(x>10){
+                if(x>0){
                     index--
-                }
-                if(x<10){
+                }else{
                     index++
                 }
 
@@ -115,6 +114,7 @@
                 if(this.flng){
                     this.flng = false
                     /* 判断已有的不在重复请求 */
+                    console.log(TabTitle[index])
                     if(TabTitle[index].classDName.length ===0){
                         this._clickClass(TabTitle[index].id)
                     }
@@ -160,6 +160,9 @@
 </script>
 
 <style lang="less" rel="stylesheet/less">
+    .bigmain{
+        top:2.5rem;
+    }
     .flexWrap{
         display: flex;
         flex-direction: row;
