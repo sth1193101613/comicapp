@@ -1,6 +1,6 @@
-import * as types from './mutation-types.js'
+import * as types from './mutations-type.js'
 import axios from 'axios'
-
+import { Dialog } from '../cube-ui'
 export default {
     getUserLogin({commit}, user) {
         axios.post('/api/user/selectUser',{

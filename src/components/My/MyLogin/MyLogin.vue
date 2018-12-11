@@ -26,8 +26,8 @@
                             placeholder="请输入密码"
                             :type="type"
                             :autocomplete="autocomplete"
-                            :eye="eye"
-                    ></cube-input>
+                            :eye="eye">
+                    </cube-input>
                 </li>
                 <li>
                     <cube-button :light="true" :disabled="disabled" :class="[{back:disabled}]" @click="loginUp">登录</cube-button>

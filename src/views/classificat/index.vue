@@ -166,7 +166,7 @@
         flex-wrap: wrap;
     }
     .cube-slide{
-        height: auto;
+        height: auto!important;
     }
     .cube-slide-group{
         white-space:normal;
