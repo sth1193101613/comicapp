@@ -22,7 +22,7 @@
                                 @change="changePage">
                             <cube-slide-item v-for="(item,index) in TabTitle">
                                 <ul class="class-d-name" @touchstart="state" @touchmove="touchmoves(index,$event)">
-                                    <li v-for="(item,index) in item.classDName" :key="index">
+                                    <li v-for="(item,index) in item.classDName" :key="index" @click="detail(item)">
                                         <img :src="`https://cdn.comicool.cn/${item.content_poster}?imageView2/2/w/180`">
                                         <div class="name">
                                             <h3>{{item.content_title}}</h3>
@@ -79,6 +79,14 @@
             this.getTabTitle();
         },
         methods: {
+            detail(item){
+                this.$router.push({
+                    path:'/detail',
+                    query:{
+                        comicId:item.content_action
+                    }
+                })
+            },
             state(e){
                 let clientX = e.targetTouches[0].clientX
                 this.statX = clientX
@@ -115,7 +123,6 @@
                 if(this.flng){
                     this.flng = false
                     /* 判断已有的不在重复请求 */
-                    console.log(TabTitle[index])
                     if(TabTitle[index].classDName.length ===0){
                         this._clickClass(TabTitle[index].id)
                     }
@@ -217,8 +224,6 @@
             }
         }
     }
-
-
     .class-d-name{
         width: 750px;
         .flexWrap;

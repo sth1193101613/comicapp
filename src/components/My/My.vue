@@ -37,18 +37,29 @@
         },
         methods:{
             admin(){
-                this.loginUp()
+                if(this.loginUpState()){
+                    this.login = true
+                }else{
+
+                }
             },
             closeFalse(){
                 this.login = false
             },
             loginUp(){
-                if(this.loginUser === ""){
+                if(this.loginUpState()){
                     this.login = true
                 }else{
                     this.login = false
                 }
             },
+            loginUpState(){
+                if(this.loginUser === ""){
+                    return true
+                }else{
+                    return false
+                }
+            }
         },
         components:{
             "v-myLogin":myLogin

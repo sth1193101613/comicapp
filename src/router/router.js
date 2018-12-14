@@ -43,12 +43,12 @@ export default new Router({
             component:resolve => require(['@/components/update/update.vue'],resolve)
         },
         {
-            path: "/classFily",
-            name: "classFily",
+            path: "/detail",
+            name: "detail",
             meta:{
                 show:false
             },
-            component:resolve => require(['@/components/classFily/classFily.vue'],resolve)
+            component:resolve => require(['@/components/detail/detail.vue'],resolve)
         },
         {
             path: "/classificat",

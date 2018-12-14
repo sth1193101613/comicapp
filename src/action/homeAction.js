@@ -37,3 +37,13 @@ export  function classContAction(id) {
 
     return jsonp(url,data,options);
 }
+export function Detail(id) {
+    const url="https://proxy.comicool.cn/comicdetail4h5";//分类全部数据
+    const data=Object.assign({},commonParams,{
+        comic_id: id,
+        device_id: 'a165e619a23a732a5f8e98f215939e19',
+        _: 1544525329510,
+        callback: 'jsonp_allcomic',
+    })
+    return jsonp(url,data,options);
+}

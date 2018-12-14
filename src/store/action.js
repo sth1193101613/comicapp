@@ -8,7 +8,11 @@ export default {
             password:user.password
         }).then(res => {
             if(res.code !== 1){
-                alert(1)
+                // Dialog.$create({
+                //     type: 'alert',
+                //     title: '提示',
+                //     content: '用户名或者密码不对',
+                // }).show()
             }else{
                 commit(types.USER_TYPE,res.data.result[0])
             }

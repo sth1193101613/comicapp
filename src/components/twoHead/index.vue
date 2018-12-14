@@ -1,6 +1,6 @@
 <template>
-    <div class="head-fiexd">
-        <i class="cubeic-back head-icon" @click="clickGo"></i>
+    <div class="head-fiexd" :class="[computedHeaderType]">
+        <i class="cubeic-back head-icon" @click="clickGo" :class="[computedType]"></i>
         <h1>{{name}}</h1>
         <div class="pa"><slot></slot></div>
     </div>
@@ -12,7 +12,34 @@
         props:{
             name:{
                 type:String,
-                default:''
+                default:null
+            },
+            IconType:{
+                type:String,
+                default: null
+            },
+            headerType:{
+                type:String,
+                default: null
+            },
+            border:{
+                type:Boolean,
+                default:false
+            }
+        },
+        computed:{
+            computedType () {
+                return `icon-${this.IconType}`
+            },
+            computedHeaderType(){
+                return `header-${this.headerType}`
+            },
+            computedBorder(){
+                if(!this.border){
+                    return `header-${this.boredr}`
+                }else{
+                    return ''
+                }
             }
         },
         methods:{
@@ -32,9 +59,14 @@
         width: 100%;
         color: #525252;
         background: #fff;
-        z-index: 1;
-        border-bottom: 1px solid #e5e5e5;
+        z-index: 2;
         display: flex;
+        &.header-border{
+            border-bottom: 1px solid #e5e5e5;
+        }
+        &.header-transparent{
+            background: transparent;
+        }
         h1{
             width: calc(100% - 190px);
             margin: 0 auto;
@@ -47,6 +79,9 @@
             top: 0;
             height: 90px;
             width: 95px;
+            &.icon-white{
+                color: #fff;
+            }
         }
         .head-icon{
             position: absolute;
