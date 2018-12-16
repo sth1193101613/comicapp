@@ -9,49 +9,49 @@
 <script>
     export default {
         name: "twoHead",
-        props:{
-            name:{
-                type:String,
-                default:null
-            },
-            IconType:{
-                type:String,
+        props: {
+            name: {
+                type: String,
                 default: null
             },
-            headerType:{
-                type:String,
+            IconType: {
+                type: String,
                 default: null
             },
-            border:{
-                type:Boolean,
-                default:false
+            headerType: {
+                type: String,
+                default: null
+            },
+            border: {
+                type: Boolean,
+                default: false
             }
         },
-        computed:{
-            computedType () {
-                return `icon-${this.IconType}`
+        computed: {
+            computedType() {
+                return `icon-${this.IconType}`;
             },
-            computedHeaderType(){
-                return `header-${this.headerType}`
+            computedHeaderType() {
+                return `header-${this.headerType}`;
             },
-            computedBorder(){
-                if(!this.border){
-                    return `header-${this.boredr}`
-                }else{
-                    return ''
+            computedBorder() {
+                if (!this.border) {
+                    return `header-${this.boredr}`;
+                } else {
+                    return "";
                 }
             }
         },
-        methods:{
-            clickGo(){
+        methods: {
+            clickGo() {
                 this.$router.go(-1);
             }
         }
-    }
+    };
 </script>
 
 <style lang="less">
-    .head-fiexd{
+    .head-fiexd {
         position: fixed;
         left: 0;
         top: 0;
@@ -61,34 +61,38 @@
         background: #fff;
         z-index: 2;
         display: flex;
-        &.header-border{
+        &.header-border {
             border-bottom: 1px solid #e5e5e5;
         }
-        &.header-transparent{
+        &.header-transparent {
             background: transparent;
         }
-        h1{
+        h1 {
             width: calc(100% - 190px);
             margin: 0 auto;
             line-height: 90px;
             text-align: center;
             font-size: 45px;
         }
-        .head-icon,.pa{
+        .head-icon,
+        .pa {
             line-height: 90px;
             top: 0;
             height: 90px;
             width: 95px;
-            &.icon-white{
+            &.icon-white {
                 color: #fff;
             }
+            &.icon-balck{
+                color: #000;
+            }
         }
-        .head-icon{
+        .head-icon {
             position: absolute;
             font-size: 50px;
             text-align: center;
         }
-        .pa{
+        .pa {
             position: absolute;
             right: 0;
         }
