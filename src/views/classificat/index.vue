@@ -42,7 +42,7 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
-import twoHead from "@/components/twoHead/index.vue";
+import twoHead from "@/components/twoHead/";
 import { classAction, classContAction } from "../../action/homeAction.js";
 import { findIndexitem } from "../../assets/js/util";
 import BetterScroll from "../../views/better/bscroll";
