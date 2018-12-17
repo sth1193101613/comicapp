@@ -3,7 +3,7 @@ import Router from "vue-router";
 
 Vue.use(Router);
 
-export default new Router({
+const Routers = new Router({
     base: process.env.BASE_URL,
     routes: [
         {
@@ -13,8 +13,9 @@ export default new Router({
         {
             path: "/discovery",
             name: "discovery",
-            meta: {
-                show: true
+            meta:{
+              show:true,
+              title:'首页'
             },
             component: resolve =>
                 require(["@/components/discovery/discovery.vue"], resolve)
@@ -55,16 +56,18 @@ export default new Router({
         {
             path: "/classificat",
             name: "classificat",
-            meta: {
-                show: false
+            meta:{
+                show:false,
+                title:'分类'
             },
             component: resolve => require(["@/views/classificat/index.vue"], resolve)
         },
         {
             path: "/rank",
             name: "rank",
-            meta: {
-                show: false
+            meta:{
+                show:false,
+                title:'排行'
             },
             component: resolve => require(["@/views/rank/index.vue"], resolve)
         },
@@ -78,3 +81,13 @@ export default new Router({
         }
     ]
 });
+
+Routers.beforeEach((to, from, next) => {
+    /* 路由发生变化修改页面title */
+    if (to.meta.title) {
+        document.title = to.meta.title;
+    }
+    next();
+})
+
+export default Routers;
