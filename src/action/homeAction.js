@@ -47,3 +47,13 @@ export function Detail(id) {
   });
   return jsonp(url, data, options);
 }
+/* rank 排行 */
+export function renkJsonp() {
+    const url = "https://proxy.comicool.cn/ranklist4web";
+    const data = Object.assign({}, commonParams, {
+        device_id: "a06776b8d2c307566c4c6cc5ad9fe496",
+        _: 1545113112118,
+        callback: "jsonp_ranklist"
+    });
+    return jsonp(url, data, options);
+}
