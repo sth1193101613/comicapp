@@ -47,7 +47,8 @@
                             this.listFor(id,i.childe)
                         }
                     }else{
-                        this.dataList(i.childe,true);
+                        i.checkbox = !i.checkbox;
+                        this.dataList(i.childe,i.checkbox);
                         console.log(this.list)
                         break;
                     }
