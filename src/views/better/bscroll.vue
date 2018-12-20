@@ -1,7 +1,9 @@
 <template>
-  <div class="bigmain" ref="wrapper">
-    <div class="gib">
-      <slot></slot>
+  <div class="pr">
+    <div class="bigmain" ref="wrapper">
+      <div class="gib">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -36,4 +38,19 @@ export default {
 </script>
 
 <style lang="less" rel="stylesheet/less">
+  .pr {
+    position: relative;
+    height: 100%;
+  }
+.bigmain {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  .gib {
+    padding-bottom: 4.5rem;
+  }
+}
 </style>

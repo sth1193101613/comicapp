@@ -1,5 +1,5 @@
 <template>
-    <cube-slide :data="items">
+    <cube-slide :data="items" class="banner">
         <template slot="dots" slot-scope="props">
             <span class="my-dot" :class="{active: props.current === index}" v-for="(item, index) in props.dots">{{index + 1}}</span>
         </template>
@@ -24,19 +24,19 @@ export default {
 </script>
 
 <style lang="less" rel="stylesheet/less">
-.cube-slide {
+.banner {
   height: 365px;
-}
-.cube-slide-dots {
-  bottom: 20px;
-  span {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    margin: 0 10px;
-    background: transparent;
-  }
+    .cube-slide-dots {
+      bottom: 20px;
+      span {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        margin: 0 10px;
+        background: transparent;
+      }
+    }
 }
 img {
   width: 100%;

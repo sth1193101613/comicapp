@@ -78,6 +78,14 @@ const Routers = new Router({
                 show: false
             },
             component: resolve => require(["@/components/newaction/newaction.vue"], resolve)
+        },
+        {
+            path: "/treeForm",
+            name: "treeForm",
+            meta: {
+                title:'玩耍的树形选择'
+            },
+            component: resolve => require(["@/components/treeForm/index.vue"], resolve)
         }
     ]
 });

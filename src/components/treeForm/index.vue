@@ -1,0 +1,147 @@
+<template>
+    <div class="listW">
+        <list :list="list"></list>
+        <button></button>
+    </div>
+</template>
+
+<script>
+    import list from '@/components/treeForm/list.vue'
+    export default {
+        name: "treeForm",
+        components:{
+            list
+        },
+        data(){
+            return{
+                list:[
+                    {
+                        id:1,
+                        childe:[
+                            {
+                                id:12
+                            },
+                            {
+                                id:13,
+                                childe:[
+                                    {
+                                        id:131,
+                                    },
+                                    {
+                                        id:132,
+                                    },
+                                    {
+                                        id:133,
+                                    },
+                                    {
+                                        id:134,
+                                        childe:[
+                                            {
+                                                id:1341,
+                                            },
+                                            {
+                                                id:1342,
+                                            },
+                                            {
+                                                id:1343,
+                                                childe:[
+                                                    {
+                                                        id:13431,
+                                                    },
+                                                    {
+                                                        id:13432,
+                                                    },
+                                                    {
+                                                        id:13433,
+                                                    },
+                                                    {
+                                                        id:13434,
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                id:1344,
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                id:14
+                            },
+                            {
+                                id:15
+                            }
+                        ]
+                    },
+                    {
+                        id:2,
+                        childe:[
+                            {
+                                id:22
+                            },
+                            {
+                                id:23
+                            },
+                            {
+                                id:24
+                            },
+                            {
+                                id:25
+                            }
+                        ]
+                    },
+                    {
+                        id:3
+                    },
+                    {
+                        id:4,
+                        childe:[
+                            {
+                                id:42
+                            },
+                            {
+                                id:43
+                            },
+                            {
+                                id:44
+                            },
+                            {
+                                id:45,
+                                childe:[
+                                    {
+                                        id:451,
+                                    },
+                                    {
+                                        id:452,
+                                    },
+                                    {
+                                        id:453,
+                                    },
+                                    {
+                                        id:454,
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        id:5
+                    }
+                ]
+            }
+        },
+        created(){
+            console.log(this.list)
+        },
+        methods:{
+
+        }
+    }
+</script>
+
+<style lang="less">
+    .listW ul{
+        margin-left: 20px;
+    }
+</style>

@@ -7,37 +7,35 @@
                           ref="tabNav"
                           :data="TabTitle">
             </cube-tab-bar>
-            <div class="pr">
-                <Better-Scroll>
-                    <div class="tab-slide-container">
-                        <cube-slide
-                                ref="slide"
-                                :loop=false
-                                :auto-play=false
-                                :show-dots=false
-                                :initial-index="initialIndex"
-                                :options="slideOptions"
-                                :data="TabTitle"
-                                :refreshResetCurrent="true"
-                                @change="changePage">
-                            <cube-slide-item v-for="(item,index) in TabTitle">
-                                <ul class="class-d-name" @touchstart="state" @touchmove="touchmoves(index,$event)">
-                                    <li v-for="(item,index) in item.classDName" :key="index" @click="detail(item)">
-                                        <img :src="`https://cdn.comicool.cn/${item.content_poster}?imageView2/2/w/180`">
-                                        <div class="name">
-                                            <h3>{{item.content_title}}</h3>
-                                            <div class="name-icon">
-                                                <i class="cubeic-good"></i>
-                                                <p>{{item.content_praise_count}}</p>
-                                            </div>
+            <Better-Scroll>
+                <div class="tab-slide-container">
+                    <cube-slide
+                            ref="slide"
+                            :loop=false
+                            :auto-play=false
+                            :show-dots=false
+                            :initial-index="initialIndex"
+                            :options="slideOptions"
+                            :data="TabTitle"
+                            :refreshResetCurrent="true"
+                            @change="changePage">
+                        <cube-slide-item v-for="(item,index) in TabTitle">
+                            <ul class="class-d-name" @touchstart="state" @touchmove="touchmoves(index,$event)">
+                                <li v-for="(item,index) in item.classDName" :key="index" @click="detail(item)">
+                                    <img :src="`https://cdn.comicool.cn/${item.content_poster}?imageView2/2/w/180`">
+                                    <div class="name">
+                                        <h3>{{item.content_title}}</h3>
+                                        <div class="name-icon">
+                                            <i class="cubeic-good"></i>
+                                            <p>{{item.content_praise_count}}</p>
                                         </div>
-                                    </li>
-                                </ul>
-                            </cube-slide-item>
-                        </cube-slide>
-                    </div>
-                </Better-Scroll>
-            </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </cube-slide-item>
+                    </cube-slide>
+                </div>
+            </Better-Scroll>
         </div>
     </div>
 </template>
@@ -175,30 +173,13 @@ export default {
 </script>
 
 <style lang="less" rel="stylesheet/less">
-.pr {
-  position: relative;
-  height: 100%;
-}
-.bigmain {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  .gib {
-    padding-bottom: 4.5rem;
-  }
-}
 
 .flexWrap {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.cube-slide {
-  height: auto !important;
-}
+
 .cube-slide-group {
   white-space: normal;
   overflow: inherit;
@@ -244,6 +225,7 @@ export default {
     img {
       width: 100%;
       display: block;
+      height: 167px;
     }
     .name {
       padding: 26px 20px 15px;

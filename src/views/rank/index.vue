@@ -10,8 +10,7 @@
             </cube-tab>
         </cube-tab-bar>
 
-        <div class="pr">
-            <Better-Scroll>
+
                 <cube-slide  ref="slide"
                              :loop="false"
                              :auto-play="false"
@@ -21,22 +20,12 @@
                              :data="list"
                             @change="changePage">
                     <cube-slide-item v-for="(item, index) in list" :key="index">
-                        <ul class="class-d-name">
-                            <li v-for="(item,index) in item.comi_list">
-                                <img :src="`https://cdn.comicool.cn/${item.comic_cover_url}?imageView2/2/w/180`">
-                                <div class="name">
-                                    <h3>{{item.content_title}}</h3>
-                                    <div class="name-icon">
-                                        <i class="cubeic-good"></i>
-                                        <p>{{item.content_praise_count}}</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <Better-Scroll>
+                            <works-list :list="item.comi_list"></works-list>
+                        </Better-Scroll>
                     </cube-slide-item>
                 </cube-slide>
-            </Better-Scroll>
-        </div>
+
     </div>
 </template>
 
@@ -44,12 +33,13 @@
     import twoHead from "@/components/twoHead/index.vue";
     import { renkJsonp } from "../../action/homeAction.js";
     import BetterScroll from "../../views/better/bscroll";
-
+    import worksList from "@/components/worksList/index.vue";
     export default {
         name: "rank",
         components: {
             twoHead,
-            BetterScroll
+            BetterScroll,
+            worksList
         },
         data() {
             return {
@@ -103,25 +93,14 @@
 </script>
 
 <style lang="less">
+    .cube-slide-group {
+        white-space: normal;
+        overflow: inherit;
+    }
     .flexWrap {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-    }
-    .pr{
-        position: relative;
-        height: 100%;
-    }
-    .bigmain {
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        overflow: hidden;
-        .gib {
-            padding-bottom: 4.5rem;
-        }
     }
     .rank {
         padding-top: 90px;
