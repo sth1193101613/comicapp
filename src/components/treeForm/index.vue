@@ -1,6 +1,6 @@
 <template>
     <div class="listW">
-        <list :list="list"></list>
+        <list @clickList="clickList" :list="list"></list>
         <button></button>
     </div>
 </template>
@@ -128,14 +128,72 @@
                     {
                         id:5
                     }
+                ],
+                minList:[
+                    {
+                        id:1,
+                        childe:[
+                            {
+                                id:11
+                            },
+                            {
+                                id:12
+                            },
+                        ]
+                    },
+                    {
+                        id:2
+                    },
+                    {
+                        id:3
+                    }
                 ]
             }
         },
         created(){
-            console.log(this.list)
+            this.dataList(this.list,false)
+        },
+        mounted(){
+
         },
         methods:{
+            dataList(list,status){
+                for(let i in list){
+                    if(list[i].childe){
+                        this.dataList(list[i].childe,status);
+                    }
+                    list[i].checkbox = status;
+                    this.$set(list,i,{...list[i]})
+                }
+            },
+            listFor(id,list){
+                for(let i in list){
+                    if(list[i].id!==id){
+                        if(list[i].childe){
+                            this.listFor(id,list[i].childe)
+                        }
+                    }else{
+                        list[i].checkbox = !list[i].checkbox
+                        if(list[i].childe){
+                            this.dataList(list[i].childe,list[i].checkbox);
+                        }
+                    }
 
+                }
+                // this.minList = list;
+            },
+            upList(id,list){
+
+
+            },
+            clickList(id){
+
+                this.listFor(id,this.list)
+                // this.upList(id,this.list)
+                console.log(this.list)
+                // this.$set(this.minList,'')
+                console.log(41)
+            }
         }
     }
 </script>

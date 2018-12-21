@@ -1,9 +1,11 @@
 <template>
     <ul>
         <li class="" v-for="item in list">
-            <input  type="checkbox" :checked="item.checkbox" @change="clickList(item.id)" />
-            <span>我是第{{item.id}}个</span>
-            <list :list="item.childe" v-if="item.childe"></list>
+            <div class="con">
+                <div class="box" :class="{active:item.checkbox}" @click="clickList(item.id)" ></div>
+                <span>我是第{{item.id}}个</span>
+            </div>
+            <list :list="item.childe" v-if="item.childe" @clickList="clickList"></list>
         </li>
     </ul>
 </template>
@@ -21,46 +23,27 @@
                 default:[]
             }
         },
-        watch:{
-            list(newName,oldName){
-                console.log(this.list)
-                this.list = oldName
-            },
-            deep: true,
-        },
-        created(){
-            this.dataList(this.list,false)
+        mounted(){
         },
         methods:{
-            dataList(list,status){
-                for(let i of list){
-                    if(i.childe){
-                        this.dataList(i.childe);
-                    }
-                    i.checkbox = status;
-                }
-            },
-            listFor(id,list){
-                for(let i of list){
-                    if(i.id!==id){
-                        if(i.childe){
-                            this.listFor(id,i.childe)
-                        }
-                    }else{
-                        i.checkbox = !i.checkbox;
-                        this.dataList(i.childe,i.checkbox);
-                        console.log(this.list)
-                        break;
-                    }
-                }
-            },
             clickList(id){
-                this.listFor(id,this.list)
+                this.$emit("clickList",id);
             }
         }
     }
 </script>
 
-<style>
-
+<style lang="less">
+    .con{
+        display: flex;
+    }
+    .box{
+        width: 20px;
+        height: 20px;
+        border:solid #000 2px;
+        border-radius: 5px;
+        &.active{
+            background: red;
+        }
+    }
 </style>
