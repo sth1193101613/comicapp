@@ -1,6 +1,6 @@
 <template>
     <div class="listW">
-        <list @clickList="clickList" :list="list"></list>
+        <list @clickList="clickList" :list="minList"></list>
         <button></button>
     </div>
 </template>
@@ -134,10 +134,16 @@
                         id:1,
                         childe:[
                             {
-                                id:11
+                                id:11,
+                                did:1,
                             },
                             {
-                                id:12
+                                id:12,
+                                did:1,
+                            },
+                            {
+                                id:13,
+                                did:1,
                             },
                         ]
                     },
@@ -151,7 +157,7 @@
             }
         },
         created(){
-            this.dataList(this.list,false)
+            this.dataList(this.minList,false)
         },
         mounted(){
 
@@ -174,25 +180,41 @@
                         }
                     }else{
                         list[i].checkbox = !list[i].checkbox
+
                         if(list[i].childe){
                             this.dataList(list[i].childe,list[i].checkbox);
                         }
+
+                        this.ttt(list[i].did,this.minList)
+
+
+                    }
+                }
+            },
+            ttt(id,list){
+                let fig = true;
+
+                for(let i in list){
+                    if(list[i].id!==id){
+                        if(list[i].childe){
+                            this.ttt(id,list[i].childe)
+                        }
+                    }else{
+
+                        if(!list[i].did){
+                            list[i].checkbox = true
+                        }
                     }
 
+                    if(!list[i].checkbox){
+                        fig = false
+                    }
                 }
-                // this.minList = list;
-            },
-            upList(id,list){
-
-
+                return fig;
             },
             clickList(id){
-
-                this.listFor(id,this.list)
-                // this.upList(id,this.list)
-                console.log(this.list)
-                // this.$set(this.minList,'')
-                console.log(41)
+                this.listFor(id,this.minList)
+                console.log(this.minList)
             }
         }
     }
